@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podpi9
+spec:
+  schedulerName: "heat-scheduler"
+  containers:
+  - name: pi
+    image: perl
+    resources:
+      limits:
+        memory: "100Mi"
+        cpu: "1"    
+    command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(20000)"]
+  restartPolicy: Never
+
