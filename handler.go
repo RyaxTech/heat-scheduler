@@ -39,6 +39,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			Items: nodes,
 		},
 	})
-	fmt.Printf("Chose node %v (joules=%v) for pod %v\n", nodes[0].Name, nodes[0].Labels["joules"], received.Pod.Name)
+	fmt.Printf("Chose node with lowest temperature  %v (celsius=%v) for pod %v\n", nodes[0].Name, nodes[0].Annotations["nerdalize/temp"], received.Pod.Name)
 	return
 }

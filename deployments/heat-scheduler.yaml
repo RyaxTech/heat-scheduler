@@ -20,10 +20,9 @@ spec:
         app: heat-scheduler
         version: second
     spec:
-      serviceAccountName: super
       containers:
       - name: extender
-        image: nerdalize/heat-scheduler-extender:0.2.2
+        image: gohnwej/temp-scheduler-extender:0.2.6
         ports:
           - containerPort: 8100
       - name: heat-scheduler

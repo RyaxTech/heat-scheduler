@@ -11,7 +11,7 @@ import (
 // logNodes prints a line for every node.
 func logNodes(nodes *k8sApi.NodeList) {
 	for _, n := range nodes.Items {
-		fmt.Printf("Received node %v with joules %v\n", n.Name, n.Labels["joules"])
+		fmt.Printf("Received node %v with temperature %v\n", n.Name, n.Annotations["nerdalize/temp"])
 	}
 }
 
@@ -43,9 +43,9 @@ func selectNode(nodes *k8sApi.NodeList) ([]k8sApi.Node, error) {
 func jouleFromLabels(node *k8sApi.Node) float64 {
 	jouleString, exists := node.Annotations["nerdalize/temp"]
 	if exists {
-		joule, err := strconv.ParseFloat(jouleString, 32)
+		joules, err := strconv.ParseFloat(jouleString, 32)
 		if err == nil {
-			return joule
+			return joules
 		}
 	}
 	return math.MaxFloat64

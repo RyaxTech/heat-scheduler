@@ -17,9 +17,9 @@
 # `make container` will build a container-- you must supply a tag.
 # `make push` will push the container-- you must supply a tag.
 
-REPO = nerdalize/
-NAME = heat-scheduler-extender
-TAG = 0.2.2
+REPO = gohnwej/
+NAME = temp-scheduler-extender
+TAG = 0.2.6
 
 build:
 	docker build -t $(REPO)$(NAME):$(TAG) .
